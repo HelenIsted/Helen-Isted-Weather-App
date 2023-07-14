@@ -74,17 +74,17 @@ search("warrington");
 let celsiusTemp = 23;
 let farenheitTemp = (celsiusTemp * 9) / 5 + 32;
 farenheitTemp = Math.round(farenheitTemp);
-let tempUnit = document.querySelector(".temperature");
+let tempUnit = document.querySelector("#tempNow");
 function celsius(event) {
   event.preventDefault();
-  tempUnit.innerHTML = `${celsiusTemp}°C`;
+  tempUnit.innerHTML = `${celsiusTemp}`;
 }
 let celsiusButton = document.querySelector("#celsius");
 celsiusButton.addEventListener("click", celsius);
 //
 function farenheit(event) {
   event.preventDefault();
-  tempUnit.innerHTML = `${farenheitTemp}°F`;
+  tempUnit.innerHTML = `${farenheitTemp}`;
 }
 let farenheitButton = document.querySelector("#farenheit");
 farenheitButton.addEventListener("click", farenheit);
