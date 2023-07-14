@@ -5,8 +5,8 @@
   max-width: 800px;
 }
 .weather-app-contents {
-  border: 1px solid #6a7283;
-  border-radius: 4px;
+  border: 2px solid #dbdce3;
+  border-radius: 5px;
   padding: 20px;
 }
 #userInteractionForm {
@@ -16,7 +16,7 @@
   color: #fff;
   background: #6a7283;
   border: 1px solid #6a7283;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 #pressButton:hover {
   color: #6a7283;
@@ -25,8 +25,8 @@
 #currentLocation {
   color: #fff;
   background: #6a7283;
-  border: 1px solid #6a7283;
-  border-radius: 4px;
+  border: 1px solid hsl(221, 11%, 46%);
+  border-radius: 5px;
 }
 #currentLocation:hover {
   color: #6a7283;
