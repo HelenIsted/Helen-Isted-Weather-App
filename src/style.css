@@ -1,0 +1,96 @@
+.container {
+  margin: 70px 50px 0px 0px;
+}
+#city-input {
+  padding: 0px, 50px, 0px, 0px;
+}
+#pressButton {
+  color: #fff;
+  background: #6a7283;
+  border: 1px solid #6a7283;
+  border-radius: 4px;
+}
+#pressButton:hover {
+  color: #6a7283;
+  background: #fff;
+}
+#currentLocation {
+  color: #fff;
+  background: #6a7283;
+  border: 1px solid #6a7283;
+  border-radius: 4px;
+}
+#currentLocation:hover {
+  color: #6a7283;
+  background: #fff;
+}
+button {
+  display: inline;
+  margin: 0;
+  padding: 20px;
+}
+#city {
+  text-align: left;
+  color: #6a7283;
+  margin: 0 0 0 20px;
+  font-weight: 500;
+}
+.day-time {
+  text-align: left;
+  color: #6a7283;
+  margin: 0 0 0 20px;
+}
+.weather {
+  text-align: left;
+  color: #6a7283;
+  margin: 0 0 0 20px;
+}
+.weather-info {
+  text-align: left;
+  font-size: 50px;
+  color: #6a7283;
+  margin: 0 0 0 20px;
+}
+.descriptions {
+  text-align: left;
+  font-size: 12px;
+  color: #6a7283;
+  margin: 0 0 0 20px;
+  display: inline;
+  list-style: none;
+}
+
+.daily-summary {
+  font-size: 30px;
+  color: #6a7283;
+  display: inline;
+}
+.day {
+  font-size: 18px;
+}
+.temp {
+  font-size: 15px;
+}
+.unit {
+  font-size: 18px;
+}
+#celsius {
+  color: #6a7283;
+  text-decoration: none;
+}
+#celsius:hover {
+  text-decoration: underline;
+}
+#farenheit:hover {
+  text-decoration: underline;
+}
+#farenheit {
+  color: #6a7283;
+  text-decoration: none;
+}
+.gitHubLink {
+  margin: 0px 10px 50px 90px;
+  text-align: left;
+  font-size: 14px;
+  color: #6a7283;
+}
