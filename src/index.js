@@ -1,5 +1,3 @@
-//Correct Day and Time
-
 //Location Time
 function formatDate(timestamp) {
   let date = new Date(timestamp);
@@ -23,11 +21,9 @@ function formatDate(timestamp) {
   let today = days[date.getDay()];
 
   return `${today}  ${hour}:${minute}`;
-  console.log(currentTime);
 }
 //Search Bar
 function displayWeather(response) {
-  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector(".day-time").innerHTML = formatDate(
     response.data.dt * 1000
@@ -35,11 +31,13 @@ function displayWeather(response) {
   document.querySelector("#tempNow").innerHTML = Math.round(
     response.data.main.temp
   );
-  document.querySelector("#tempNow").innerHTML = Math.round(
-    response.data.main.temp
-  );
   document.querySelector("#weatherNow").innerHTML =
     response.data.weather[0].description;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#precipitation").innerHTML =
     response.data.main.humidity;
