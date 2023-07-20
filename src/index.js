@@ -28,6 +28,9 @@ function displayWeather(response) {
   document.querySelector("#tempNow").innerHTML = Math.round(
     response.data.main.temp
   );
+  document.querySelector("#tempNowTwo").innerHTML = Math.round(
+    response.data.main.temp
+  );
   document.querySelector("#weatherNow").innerHTML =
     response.data.weather[0].main;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -88,3 +91,23 @@ function farenheit(event) {
 }
 let farenheitButton = document.querySelector("#farenheit");
 farenheitButton.addEventListener("click", farenheit);
+///
+
+/////
+let celsiusTempT = 23;
+let farenheitTempT = (celsiusTemp * 9) / 5 + 32;
+farenheitTempT = Math.round(farenheitTempT);
+let tempUnitT = document.querySelector("#tempNowTwo");
+function celsius(event) {
+  event.preventDefault();
+  tempUnit.innerHTML = `${celsiusTempT}`;
+}
+let celsiusButtonT = document.querySelector(".celsius");
+celsiusButtonT.addEventListener("click", celsius);
+//
+function farenheit(event) {
+  event.preventDefault();
+  tempUnitT.innerHTML = `${farenheitTempT}`;
+}
+let farenheitButtonT = document.querySelector(".farenheit");
+farenheitButtonT.addEventListener("click", farenheit);

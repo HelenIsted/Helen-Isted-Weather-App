@@ -27,13 +27,17 @@
               id="currentLocation"
             />
           </form>
-          <br />
-          <p id="city"></p>
-          <p class="day-time"></p>
-          <p class="weather" id="weatherNow"></p>
-
+          <div class="overview">
+            <p id="city"></p>
+            <p class="day-time"></p>
+            <p class="weather" id="weatherNow"></p>
+          </div>
           <div class="row align-items-center weather-info">
-            <div class="col emoji">☀️</div>
+            <img
+              src="images/—Pngtree—sun cartoon golden sun_4492425.png"
+              alt="Clear"
+              id="icon"
+            />
             <div class="col temperature">
               <span id="tempNow"></span>
               <span class="unit"
@@ -102,6 +106,36 @@
         </p>
       </div>
     </div>
+
+    /////////////////
+
+    <div class="row">
+      <div class="col-3">
+        <div class="d-flex weather-temperature">
+          <img
+            src="images/—Pngtree—sun cartoon golden sun_4492425.png"
+            alt="Clear"
+          />
+          <div>
+            <strong id="tempNowTwo"></strong><span class="units"> °C</span>
+          </div>
+          <span class="unit"
+            ><a href="#" class="celsius">°C</a>|<a href="#" class="farenheit"
+              >°F</a
+            ></span
+          >
+        </div>
+      </div>
+      <div class="col-3">
+        <ul class="descriptions">
+          <li>Humidity: <span id="humidity"></span>%</li>
+          <li>Precipitation: <span id="precipitation"></span>%</li>
+          <li>Wind: <span id="wind"></span>mph</li>
+        </ul>
+      </div>
+    </div>
+
+    //////////////////////
 
     <script src="index.js"></script>
     <script src="src/index.js"></script>
