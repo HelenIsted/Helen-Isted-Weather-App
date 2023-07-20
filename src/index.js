@@ -1,31 +1,37 @@
 //Correct Day and Time
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let today = days[now.getDay()];
-let hour = now.getHours();
-let minute = now.getMinutes();
-if (hour < 10) {
-  hour = `0${hour}`;
-}
-if (minute < 10) {
-  minute = `0${minute}`;
-}
-let currentTime = `${today}  ${hour}:${minute}`;
-let currentDate = document.querySelector(".day-time");
-currentDate.innerHTML = `${currentTime}`;
 
+//Location Time
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hour = date.getHours();
+  let minute = date.getMinutes();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let today = days[date.getDay()];
+
+  return `${today}  ${hour}:${minute}`;
+  console.log(currentTime);
+}
 //Search Bar
 function displayWeather(response) {
   console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector(".day-time").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
   document.querySelector("#tempNow").innerHTML = Math.round(
     response.data.main.temp
   );

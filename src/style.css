@@ -38,6 +38,8 @@ button {
 }
 .overview {
   margin: 20px 0px 20px 0px;
+}
+.overview::first-letter {
   text-transform: capitalize;
 }
 #city {
