@@ -24,15 +24,16 @@ currentDate.innerHTML = `${currentTime}`;
 
 //Search Bar
 function displayWeather(response) {
+  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#tempNow").innerHTML = Math.round(
     response.data.main.temp
   );
-  document.querySelector("#tempNowTwo").innerHTML = Math.round(
+  document.querySelector("#tempNow").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#weatherNow").innerHTML =
-    response.data.weather[0].main;
+    response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#precipitation").innerHTML =
     response.data.main.humidity;
