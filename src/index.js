@@ -81,14 +81,14 @@ search("warrington");
 
 //
 let celsiusTemp = null;
-function farenheitConvert(event) {
+function fahrenheitConvert(event) {
   event.preventDefault();
-  let farenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
-  document.querySelector("#tempNow").innerHTML = `${farenheitTemp}`;
+  let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
+  document.querySelector("#tempNow").innerHTML = `${fahrenheitTemp}`;
   document.querySelector(".units").innerHTML = "°F";
 }
-let farenheitButton = document.querySelector("#farenheit");
-farenheitButton.addEventListener("click", farenheitConvert);
+let fahrenheitButton = document.querySelector("#fahrenheit");
+fahrenheitButton.addEventListener("click", fahrenheitConvert);
 
 //
 

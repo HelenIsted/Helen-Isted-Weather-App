@@ -3,6 +3,7 @@
 }
 .weather-app {
   max-width: 900px;
+  background-color: #fff;
 }
 .weather-app-contents {
   border: 2px solid #dbdce3;
