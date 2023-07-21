@@ -28,9 +28,9 @@ function displayWeather(response) {
   document.querySelector(".day-time").innerHTML = formatDate(
     response.data.dt * 1000
   );
-  document.querySelector("#tempNow").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celsiusTemp = Math.round(response.data.main.temp);
+  document.querySelector("#tempNow").innerHTML = celsiusTemp;
+  document.querySelector(".units").innerHTML = "°C";
   document.querySelector("#weatherNow").innerHTML =
     response.data.weather[0].description;
   let iconElement = document.querySelector("#icon");
@@ -79,40 +79,24 @@ search("warrington");
 
 //Celsius
 
-let celsiusTemp = 23;
-let farenheitTemp = (celsiusTemp * 9) / 5 + 32;
-farenheitTemp = Math.round(farenheitTemp);
-let tempUnit = document.querySelector("#tempNow");
-function celsius(event) {
-  event.preventDefault();
-  tempUnit.innerHTML = `${celsiusTemp}`;
-}
-let celsiusButton = document.querySelector("#celsius");
-celsiusButton.addEventListener("click", celsius);
 //
-function farenheit(event) {
+let celsiusTemp = null;
+function farenheitConvert(event) {
   event.preventDefault();
-  tempUnit.innerHTML = `${farenheitTemp}`;
+  let farenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
+  document.querySelector("#tempNow").innerHTML = `${farenheitTemp}`;
+  document.querySelector(".units").innerHTML = "°F";
 }
 let farenheitButton = document.querySelector("#farenheit");
-farenheitButton.addEventListener("click", farenheit);
-///
+farenheitButton.addEventListener("click", farenheitConvert);
 
-/////
-let celsiusTempT = 23;
-let farenheitTempT = (celsiusTemp * 9) / 5 + 32;
-farenheitTempT = Math.round(farenheitTempT);
-let tempUnitT = document.querySelector("#tempNowTwo");
-function celsius(event) {
-  event.preventDefault();
-  tempUnit.innerHTML = `${celsiusTempT}`;
-}
-let celsiusButtonT = document.querySelector(".celsius");
-celsiusButtonT.addEventListener("click", celsius);
 //
-function farenheit(event) {
+
+let tempUnit = document.querySelector("#tempNow");
+function celsiusConvert(event) {
   event.preventDefault();
-  tempUnitT.innerHTML = `${farenheitTempT}`;
+  document.querySelector("#tempNow").innerHTML = `${celsiusTemp}`;
+  document.querySelector(".units").innerHTML = "°C";
 }
-let farenheitButtonT = document.querySelector(".farenheit");
-farenheitButtonT.addEventListener("click", farenheit);
+let celsiusButton = document.querySelector("#celsius");
+celsiusButton.addEventListener("click", celsiusConvert);
