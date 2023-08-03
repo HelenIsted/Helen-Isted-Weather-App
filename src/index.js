@@ -28,7 +28,7 @@ function showForecast() {
   let showForecast = document.querySelector("#forecast");
   showForecast.innerHTML = `Hi`;
 }
-showForecast;
+
 //Search Bar
 function displayWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
@@ -40,6 +40,7 @@ function displayWeather(response) {
   document.querySelector(".units").innerHTML = "°C";
   document.querySelector("#weatherNow").innerHTML =
     response.data.weather[0].description;
+  showForecast;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
