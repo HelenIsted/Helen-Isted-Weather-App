@@ -22,6 +22,13 @@ function formatDate(timestamp) {
 
   return `${today}  ${hour}:${minute}`;
 }
+//forecast
+
+function showForecast() {
+  let showForecast = document.querySelector("#forecast");
+  showForecast.innerHTML = `Hi`;
+}
+showForecast;
 //Search Bar
 function displayWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;

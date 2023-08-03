@@ -6,9 +6,10 @@
   background-color: #fff;
 }
 .weather-app-contents {
-  border: 2px solid #dbdce3;
+  border: 2px solid rgb(151, 113, 243, 0.5);
   border-radius: 5px;
   padding: 20px;
+  background-color: rgb(151, 113, 243, 0.1);
 }
 #userInteractionForm {
   padding: 0px, 50px, 0px, 20px;
@@ -84,6 +85,7 @@ button {
   font-size: 30px;
   color: #6a7283;
   display: inline;
+  text-align: center;
 }
 .day {
   font-size: 18px;
@@ -115,4 +117,7 @@ button {
   font-size: 14px;
   color: #6a7283;
   text-align: left;
+}
+.high {
+  font-weight: bolder;
 }
