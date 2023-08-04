@@ -25,8 +25,35 @@ function formatDate(timestamp) {
 //forecast
 
 function showForecast() {
+  let forecastHTML = `<div class="row">`;
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col mon">
+              <div class="day">${day}</div>
+              <img
+                src="https://dictionary.cambridge.org/images/thumb/circle_noun_001_02738.jpg?version=5.0.332"
+                alt="weather"
+                width="48"
+              />
+              <div class="temp mon-temp">
+                <span class="mon-high high">10</span>
+                <span class="mon-low">5</span>
+              </div>
+            </div>`;
+  });
+
   let showForecast = document.querySelector("#forecast");
-  showForecast.innerHTML = `Hi`;
+  showForecast.innerHTML = forecastHTML;
 }
 
 //Search Bar
@@ -40,7 +67,7 @@ function displayWeather(response) {
   document.querySelector(".units").innerHTML = "°C";
   document.querySelector("#weatherNow").innerHTML =
     response.data.weather[0].description;
-  showForecast;
+  showForecast();
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
