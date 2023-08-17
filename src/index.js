@@ -85,10 +85,7 @@ function displayWeather(response) {
   document.querySelector("#weatherNow").innerHTML =
     response.data.weather[0].description;
   let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute(
-    "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+  iconElement.setAttribute("src", `src=${forecastDay.condition.icon_url}`);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#precipitation").innerHTML =
     response.data.main.humidity;
@@ -128,29 +125,3 @@ let searchButton = document.querySelector("#pressButton");
 searchButton.addEventListener("click", cityInput);
 
 search("warrington");
-
-//Celsius
-
-//
-let celsiusTemp = null;
-function fahrenheitConvert(event) {
-  event.preventDefault();
-  let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
-  document.querySelector("#tempNow").innerHTML = `${fahrenheitTemp}`;
-  document.querySelector(".units").innerHTML = "°F";
-}
-let fahrenheitButton = document.querySelector("#fahrenheit");
-fahrenheitButton.addEventListener("click", fahrenheitConvert);
-
-//
-
-let tempUnit = document.querySelector("#tempNow");
-function celsiusConvert(event) {
-  event.preventDefault();
-  document.querySelector("#tempNow").innerHTML = `${celsiusTemp}`;
-  document.querySelector(".units").innerHTML = "°C";
-}
-let celsiusButton = document.querySelector("#celsius");
-celsiusButton.addEventListener("click", celsiusConvert);
-
-//
