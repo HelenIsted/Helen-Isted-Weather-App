@@ -23,10 +23,9 @@ function formatDate(timestamp) {
   return `${today}  ${hour}:${minute}`;
 }
 //forecast
-
-function showForecast(response) {
-  console.log(response.data.daily);
-  let forecastHTML = `<div class="row">`;
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -36,21 +35,33 @@ function showForecast(response) {
     "Friday",
     "Saturday",
   ];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col mon">
-              <div class="day">${day}</div>
+  return days[day];
+}
+function showForecast(response) {
+  console.log(response.data.daily);
+  let forecastHTML = `<div class="row">`;
+  let forecast = response.data.daily;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col mon">
+              <div class="day">${formatDay(forecastDay.time)}</div>
               <img
-                src="https://dictionary.cambridge.org/images/thumb/circle_noun_001_02738.jpg?version=5.0.332"
+                src=${forecastDay.condition.icon_url}
                 alt="weather"
                 width="48"
               />
               <div class="temp mon-temp">
-                <span class="mon-high high">10</span>
-                <span class="mon-low">5</span>
+                <span class="mon-high high">${Math.round(
+                  forecastDay.temperature.maximum
+                )}°</span>
+                <span class="mon-low">${Math.round(
+                  forecastDay.temperature.minimum
+                )}°</span>
               </div>
             </div>`;
+    }
   });
 
   let showForecast = document.querySelector("#forecast");
