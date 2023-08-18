@@ -38,7 +38,7 @@ function formatDay(timestamp) {
   return days[day];
 }
 function showForecast(response) {
-  console.log(response.data.daily);
+  console.log(response.data);
   let forecastHTML = `<div class="row">`;
   let forecast = response.data.daily;
   forecast.forEach(function (forecastDay, index) {
@@ -68,36 +68,40 @@ function showForecast(response) {
   showForecast.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "41aob4b0d9c63f894f5ae29a4ce68ta0";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=41aob4b0d9c63f894f5ae29a4ce68ta0&units=metric`;
   axios.get(apiUrl).then(showForecast);
 }
 //Search Bar
 function displayWeather(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
+  console.log(response.data);
+  document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector(".day-time").innerHTML = formatDate(
-    response.data.dt * 1000
+    response.data.time * 1000
   );
-  celsiusTemp = Math.round(response.data.main.temp);
+  celsiusTemp = Math.round(response.data.temperature.current);
   document.querySelector("#tempNow").innerHTML = celsiusTemp;
   document.querySelector(".units").innerHTML = "°C";
   document.querySelector("#weatherNow").innerHTML =
-    response.data.weather[0].description;
+    response.data.condition.description;
   let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute("src", `src=${forecastDay.condition.icon_url}`);
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#precipitation").innerHTML =
-    response.data.main.humidity;
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  document.querySelector("#humidity").innerHTML =
+    response.data.temperature.humidity;
+  document.querySelector("#pressure").innerHTML =
+    response.data.temperature.pressure;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  getForecast(response.data.coord);
+  getForecast(response.data.coordinates);
 }
 
 function search(city) {
-  let apiKey = "ead5bcbff0822544c11251df60c000c3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "41aob4b0d9c63f894f5ae29a4ce68ta0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
   axios.get(apiUrl).then(displayWeather);
 }
 function cityInput(event) {
@@ -107,8 +111,8 @@ function cityInput(event) {
 }
 
 function searchCurrent(position) {
-  let apiKey = "ead5bcbff0822544c11251df60c000c3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "41aob4b0d9c63f894f5ae29a4ce68ta0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${position.coordinates.latitude}&lon=${position.coordinates.longitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 }
 
