@@ -111,8 +111,9 @@ function cityInput(event) {
 }
 
 function searchCurrent(position) {
+  console.log(position);
   let apiKey = "41aob4b0d9c63f894f5ae29a4ce68ta0";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${position.coordinates.latitude}&lon=${position.coordinates.longitude}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${position.coords.latitude}&lon=${position.coords.longitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 }
 
@@ -128,4 +129,4 @@ currentLocationUser.addEventListener("click", findLocation);
 let searchButton = document.querySelector("#pressButton");
 searchButton.addEventListener("click", cityInput);
 
-search("warrington");
+search("london");
